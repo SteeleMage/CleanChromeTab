@@ -14,8 +14,151 @@
         padding: 5px;
         background: linear-gradient(60deg, rgb(28 28 38) 8%, rgb(42 73 123) 30%, rgb(127 243 148) 86%, rgb(243 255 91));
     }
+
+    #mvu-links-container {
+        position: relative;
+        top: 10vh;
+        width: 80vw;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #mvu-links {
+    }
+
+    #mvu-links > UL {
+        text-align: center;
+    }
+
+    #mvu-links > UL > LI {
+        list-style: none;
+        color: lightslategray;
+        display: inline-block;
+        margin: 3px;
+    }
+
+    #mvu-links > UL > LI:hover {
+        font-size: 120%;
+        color: white;
+    }
+
+    #mvu-links > UL > LI:active {
+        font-size: 120%;
+        color: deepskyblue;
+    }
+
+
+    #mvu-links > UL > LI > A {
+        color: #ff9;
+        text-shadow: 2px 2px 5px black;
+        text-decoration: none;
+    }
+
+    #mvu-links > UL > LI > A:hover {
+        font-size: 120%;
+        color: white;
+        text-decoration: underline;
+    }
+
+    #mvu-links > UL > LI > A:active {
+        font-size: 120%;
+        color: deepskyblue;
+        text-decoration: underline;
+    }
+
+    #mvu-links .anchorbox {
+        width: 48px;
+        height: 48px;
+        border-radius: 37%;
+        border-top: 2px outset rgba(255,255,255,0.9);
+        border-right: 2px outset #fff;
+        border-bottom: 2px outset rgba(128,128,128, 0.9);
+        border-left: 2px outset rgba(153,153,153,0.3);
+        /*background-color: darkturquoise;*/
+        background: linear-gradient(45deg, #333 10%, #999 30%, #777 55%, #aaa 60%, #fff 70%, #eee);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 5px;
+        line-height: 43px;
+        /* opacity: 0.8; */
+        margin: 4px;
+        filter: drop-shadow(-9px 13px 4px black);
+    }
+
+    #mvu-links .anchorbox:hover {
+        /*background-color: deepskyblue;*/
+        border-width: 6px;
+        margin: 0;
+        border-top-color: #fff;
+        border-right-color: #fff;
+        border-left-color: #c0c0c0;
+        border-bottom-color: #c0c0c0;
+        border-style: solid;
+    }
+
+    #mvu-links .anchorbox:active {
+        background: linear-gradient(45deg, #eee 10%, #fff 30%, #aaa 55%, #777 60%, #999 70%, #333);
+        /*background-color: white;*/
+        border-bottom-color: skyblue;
+        border-left-color: skyblue;
+        border-right-color: deepskyblue;
+        border-top-color: deepskyblue;
+        border-style: solid;
+        border-width: 6px;
+        margin: 0;
+
+    }
+
+    #mvu-links .icon-container {
+        position: relative;
+    }
+
+    #mvu-links .anchorbox IMG {
+        width: 32px;
+        height: 32px;
+        vertical-align: middle;
+        border-radius: 33%;
+        filter: drop-shadow(-1px 3px 0px #333)
+    }
+
+    #mvu-active-title {
+        margin-left: auto;
+        margin-right: auto;
+        width: 60vw;
+        color: white;
+        text-shadow: -5px 4px 5px rgb(32 32 32 / 50%);
+        text-align: center;
+        font-size: 3.75em;
+        -webkit-text-stroke-width: 0.95px;
+        -webkit-text-stroke-color: black;
+    }
+
+    #mvu-active-title .faded {
+        color: #5bc4de;
+    }
+
+    #mvu-active-url {
+        margin-left: auto;
+        margin-right: auto;
+        width: 40vw;
+        color: #454541;
+        /*text-shadow: -2px 2px 3px rgb(32 32 32 / 95%);*/
+        text-align: center;
+        font-size: 1.25em;
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
     </style>
 </head>
 <body>
+
+<div id="mvu-links-container">
+    <div id="mvu-links"></div>
+    <div id="mvu-active-title"></div>
+    <div id="mvu-active-url"></div>
+</div>
+
+<script src="mvu-links.js"></script>
+
 </body>
 </html>

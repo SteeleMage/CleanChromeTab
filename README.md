@@ -1,5 +1,5 @@
 # CleanChromeTab
-Chrome Extension to Simply Change "New Tab" to be Clean, w/o Ads and Links
+Chrome Extension to Simply Change "New Tab" to be Clean, w/o Ads and Unwanted Links
 
 ---
 
@@ -26,6 +26,21 @@ Notes:
 
 
 # Release History
+
+
+### v0.2 - Styled Icons for "Most Visited Sites"
+
+- Adds a set of "Most Visited Sites" icons
+
+Okay, the clean was *really* clean!  Having nothing but a plain page felt a little odd.
+That's not a bad thing, at all; but, I felt like experimenting with an idea to add some
+basic features onto it (that I expect to add toggle-options so they can be hidden and
+return to the clean page).
+
+This release starts initial work on that idea.  Each icon will react to hovering over
+them, displaying their current Title and URL for more reference prior to clicking them.
+
+
 
 ### v0.1 - Basic Release
 
