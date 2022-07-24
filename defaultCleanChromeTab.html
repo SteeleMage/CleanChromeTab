@@ -15,52 +15,127 @@
         background: linear-gradient(60deg, rgb(28 28 38) 8%, rgb(42 73 123) 30%, rgb(127 243 148) 86%, rgb(243 255 91));
     }
 
+
+    @keyframes rotateIn {
+        from {
+            transform: translateY(-60%) translateX(calc(50vw - 40vh)) rotate(180deg);
+        }
+        to {
+            transform: translateY(-60%) translateX(calc(50vw - 40vh)) rotate(0deg);
+        }
+    }
+
+    @keyframes zapIn {
+        from {
+            border-left: 2px solid white;
+            border-right: 2px solid white;
+            border-radius: 50%;
+            width: 0;
+            left: 50vw;
+
+            background: white;
+            filter: blur(5px);
+        }
+
+        50% {
+            border-left: 0;
+            border-right: 0;
+            border-radius: 50%;
+            width: 44vw;
+            left: 28vw;
+
+            background: none;
+            filter: blur(0);
+        }
+
+        70% {
+            border-radius: 0%;
+        }
+    }
+
+
+
     #mvu-links-container {
-        position: relative;
-        top: 10vh;
-        width: 80vw;
-        margin-left: auto;
-        margin-right: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
     }
 
     #mvu-links {
-    }
-
-    #mvu-links > UL {
         text-align: center;
+        filter: drop-shadow(-9px 13px 4px black);
+
+        /** Currently, should be square to work properly with circlegraph **/
+        width: 80vh;
+        height: 80vh;
+
+        transform: translateY(-60%) translateX(calc(50vw - 40vh));
+
+        /** Half the Width of Item **/
+        margin: calc(50px / 2 + 0px);
     }
 
-    #mvu-links > UL > LI {
-        list-style: none;
+    #mvu-links.rotate-in {
+        animation-name: rotateIn;
+        animation-duration: 0.85s;
+    }
+
+    /**
+     ** Uncomment this to "line-check" the circular path
+     **
+    #mvu-links:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 2px solid white;
+        width: calc( 100% - 2px * 2);
+        height: calc( 100% - 2px * 2 );
+        border-radius: 50%;
+    }
+     **
+     **/
+
+    #mvu-links > .mvu-item {
         color: lightslategray;
         display: inline-block;
-        margin: 3px;
+
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50px;
+        height: 50px;
+        margin: calc( -50px / 2 );
+
+        /*transform-origin: 36px 36px;*/
     }
 
-    #mvu-links > UL > LI:hover {
+    #mvu-links > .mvu-item:hover {
         font-size: 120%;
         color: white;
     }
 
-    #mvu-links > UL > LI:active {
+    #mvu-links > .mvu-item:active {
         font-size: 120%;
         color: deepskyblue;
     }
 
 
-    #mvu-links > UL > LI > A {
+    #mvu-links > .mvu-item > A {
         color: #ff9;
         text-shadow: 2px 2px 5px black;
         text-decoration: none;
     }
 
-    #mvu-links > UL > LI > A:hover {
+    #mvu-links > .mvu-item > A:hover {
         font-size: 120%;
         color: white;
         text-decoration: underline;
     }
 
-    #mvu-links > UL > LI > A:active {
+    #mvu-links > .mvu-item > A:active {
         font-size: 120%;
         color: deepskyblue;
         text-decoration: underline;
@@ -74,7 +149,7 @@
         border-right: 2px outset #fff;
         border-bottom: 2px outset rgba(128,128,128, 0.9);
         border-left: 2px outset rgba(153,153,153,0.3);
-        /*background-color: darkturquoise;*/
+        /* TODO: Move this to JS circle arrangement routine so it can adjust angle accordingly */
         background: linear-gradient(45deg, #333 10%, #999 30%, #777 55%, #aaa 60%, #fff 70%, #eee);
         overflow: hidden;
         text-overflow: ellipsis;
@@ -82,7 +157,7 @@
         line-height: 43px;
         /* opacity: 0.8; */
         margin: 4px;
-        filter: drop-shadow(-9px 13px 4px black);
+        filter: grayscale(0.75);
     }
 
     #mvu-links .anchorbox:hover {
@@ -94,6 +169,8 @@
         border-left-color: #c0c0c0;
         border-bottom-color: #c0c0c0;
         border-style: solid;
+        transform: scale(1.25);
+        filter: grayscale(0);
     }
 
     #mvu-links .anchorbox:active {
@@ -106,7 +183,8 @@
         border-style: solid;
         border-width: 6px;
         margin: 0;
-
+        transform: scale(1.25);
+        filter: grayscale(0);
     }
 
     #mvu-links .icon-container {
@@ -128,36 +206,69 @@
         color: white;
         text-shadow: -5px 4px 5px rgb(32 32 32 / 50%);
         text-align: center;
-        font-size: 3.75em;
+        /*font-size: 3.75em;*/
+        font-size: 7.5vh;
+        font-weight: bold;
         -webkit-text-stroke-width: 0.95px;
         -webkit-text-stroke-color: black;
+        position: absolute;
+        top: 45vh;
+        left: 20vw;
+
+        /* Star-Wars style text scroll look */
+        transform-origin: top;
+        transform: perspective(70vh) translate3d(0, 0, -35vh) rotate3d(1, 0, 0, 0.125turn);
+
+        /* Fade-out at the bottom */
+        -webkit-mask-image: -webkit-linear-gradient(270deg, rgba(0,0,0,1) 45vh, rgba(0,0,0,0) 93%);
+        overflow: hidden;
     }
 
-    #mvu-active-title .faded {
+    #mvu-active-title SPAN.faded {
         color: #5bc4de;
     }
+    #mvu-active-url SPAN.caution {
+        color: #ff3333;
+    }
+    #mvu-active-url SPAN.satisfied {
+        color: #33d033;
+    }
+
 
     #mvu-active-url {
-        margin-left: auto;
-        margin-right: auto;
-        width: 40vw;
-        color: #454541;
-        /*text-shadow: -2px 2px 3px rgb(32 32 32 / 95%);*/
+        position: absolute;
+        bottom: 1.5em;
+        left: 28vw;
+        width: 44vw;
+        /*color: #454541;*/
+        color: #a8a8a4;
+        text-shadow: -2px 2px 3px rgb(32 32 32 / 95%);
         text-align: center;
-        font-size: 1.25em;
+        /*font-size: 1.25em;*/
+        font-size: 3vh;
         text-overflow: ellipsis;
         overflow: hidden;
+
+        /* To support the zap-in animation */
+        white-space: nowrap;
+    }
+
+    #mvu-active-url.zap-in {
+        animation-name: zapIn;
+        animation-duration: 1.0s;
     }
     </style>
 </head>
 <body>
 
 <div id="mvu-links-container">
-    <div id="mvu-links"></div>
+    <div id="mvu-links" class="rotate-in"></div>
+
     <div id="mvu-active-title"></div>
-    <div id="mvu-active-url"></div>
+    <div id="mvu-active-url" class=""></div>
 </div>
 
+<script src="circlegraph.js"></script>
 <script src="mvu-links.js"></script>
 
 </body>

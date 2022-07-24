@@ -27,6 +27,16 @@ Notes:
 
 # Release History
 
+### v0.3 - Semi-Circular Icon Arrangement that Rolls In
+
+This was a fun experiment to change icons so that they are arranged in a semi-circular
+fashion, with each icon rotated to match its place on the curve; then also added some
+animation so that when a new tab opens, they slide in along the curve!
+
+It also adds some coloration to the protocol being used with https as green, being a
+securely encrypted connection, and http as red, being an unencrypted connection.
+
+
 
 ### v0.2 - Styled Icons for "Most Visited Sites"
 

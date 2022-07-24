@@ -1,7 +1,7 @@
 {
   "name": "Steeles' Clean Chrome Tab",
   "description": "Chrome Extension to Simply Change \"New Tab\" to be Clean, w/o Ads and Unwanted Links",
-  "version": "0.2",
+  "version": "0.3",
   "manifest_version": 3,
   "chrome_url_overrides" : {
     "newtab": "defaultCleanChromeTab.html"
